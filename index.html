@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>胖達記事本</title>
+
+  <!-- 正確的 favicon 設定（使用 icon.png） -->
+  <link rel="icon" href="icon.png" type="image/png" />
+
+  <style>
+    textarea {
+      width: 1000000px;
+      height: 1000000px;
+      box-sizing: border-box;
+      font-size: 18px;
+      padding: 10px;
+      resize: none;
+      overflow: auto;
+      font-family: monospace, monospace;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+<textarea id="noPasteInput" placeholder="請輸入文字"></textarea>
+
+<script>
+  const textarea = document.getElementById('noPasteInput');
+
+  ['paste', 'copy', 'cut'].forEach(eventName => {
+    textarea.addEventListener(eventName, e => e.preventDefault());
+  });
+
+  window.addEventListener('keydown', e => {
+    e.preventDefault();
+  }, true);
+
+  window.addEventListener('contextmenu', e => {
+    e.preventDefault();
+  });
+</script>
+
+</body>
+</html>
